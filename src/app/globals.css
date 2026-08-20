@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-base: #08090f;
+  --bg-surface: #10121d;
+  --bg-surface-hover: #161929;
+  --bg-surface-active: #1d2136;
+  
+  --border-color: #1e2238;
+  --border-color-hover: #2e3454;
+  
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.15);
+  --primary-hover: #4f46e5;
+  
+  --text-main: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --color-pending: #f59e0b;
+  --color-pending-glow: rgba(245, 158, 11, 0.1);
+  --color-inprogress: #3b82f6;
+  --color-inprogress-glow: rgba(59, 130, 246, 0.1);
+  --color-completed: #10b981;
+  --color-completed-glow: rgba(16, 185, 129, 0.1);
+  
+  --color-high: #ef4444;
+  --color-high-glow: rgba(239, 68, 68, 0.1);
+  --color-medium: #f59e0b;
+  --color-medium-glow: rgba(245, 158, 11, 0.1);
+  --color-low: #10b981;
+  --color-low-glow: rgba(16, 185, 129, 0.1);
+
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-primary: 0 0 20px 0 rgba(99, 102, 241, 0.1);
+  
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-base: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f1f5f9;
+  --bg-surface-active: #e2e8f0;
+  
+  --border-color: #e2e8f0;
+  --border-color-hover: #cbd5e1;
+  
+  --primary: #4f46e5;
+  --primary-glow: rgba(79, 70, 229, 0.1);
+  --primary-hover: #3730a3;
+  
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  --color-pending: #d97706;
+  --color-pending-glow: rgba(217, 119, 6, 0.08);
+  --color-inprogress: #2563eb;
+  --color-inprogress-glow: rgba(37, 99, 235, 0.08);
+  --color-completed: #059669;
+  --color-completed-glow: rgba(5, 150, 105, 0.08);
+  
+  --color-high: #dc2626;
+  --color-high-glow: rgba(220, 38, 38, 0.08);
+  --color-medium: #d97706;
+  --color-medium-glow: rgba(217, 119, 6, 0.08);
+  --color-low: #059669;
+  --color-low-glow: rgba(5, 150, 105, 0.08);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-primary: 0 0 20px 0 rgba(79, 70, 229, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color-hover);
+}
+
+/* Loading animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px var(--primary-glow);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.35);
+  }
+}
+
+/* Custom utility styles */
+.text-gradient {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
