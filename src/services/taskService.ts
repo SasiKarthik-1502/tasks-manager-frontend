@@ -8,7 +8,7 @@ export const taskService = {
   // ==========================================
 
   async getProjects(): Promise<Project[]> {
-    const res = await fetch(`${API_BASE_URL}/projects`);
+    const res = await fetch(`${API_BASE_URL}/projects`); 
     if (!res.ok) {
       throw new Error('Failed to fetch projects');
     }
